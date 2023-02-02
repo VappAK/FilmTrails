@@ -63,13 +63,13 @@ const movieTrailer = (id) => {
                     >Play</button>
                     <button className='button'>My list</button>
 
-                    { urlId.key &&  <Youtube opts={opts} videoId={urlId.key}  /> }
 
-                    
+
                 </div>
                 <h1 className='description'>{truncate(movie?.overview,150)}</h1>
             </div>
             <div className="fade_bottom"></div>
+                    { urlId.key &&  <Youtube opts={opts} videoId={urlId.key}  /> }
         </div>
 
 
