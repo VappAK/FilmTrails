@@ -49,7 +49,7 @@ const movieTrailer = (id) => {
 
 
   return (
-    <div>
+    <div className='banner-main'>
       
 
         <div style={{backgroundImage:`url(${movie ? imageUrl+movie.backdrop_path : " "})` }} className='banner'>
