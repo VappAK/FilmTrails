@@ -1,0 +1,37 @@
+/* display flex is used to dispaly multiple items horizontally */
+.row{
+    margin-left: 20px;
+    color: #fff;
+}
+
+.posters{
+    display: flex;  
+    padding: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.poster{
+    cursor: pointer;
+    margin-right: 10px;
+    max-height: 250px; 
+    
+} 
+
+.posters::-webkit-scrollbar{
+    display: none;
+}
+.smallPoster{
+    cursor: pointer;
+    max-height: 150px;
+    margin-right: 10px;
+}
+.title_1{
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+.poster:hover{
+    transform: scale(1.1);
+}
+.smallPoster:hover{
+    transform: scale(1.1)
+}
