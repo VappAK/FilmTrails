@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import "./Banner.css"
 import { API_KEY ,imageUrl} from '../../Constants'
+import Youtube from "react-youtube";
 import axios from '../../Axios'
 
 function Banner() {
 
     const[movie,setMovie]=useState([])
+    const [urlId, setUrlId] = useState([]);
 
 
   useEffect(()=>{
@@ -24,6 +26,28 @@ function Banner() {
 }
 
 
+// copied from documentation (react-youtube npm )
+const opts = {
+  height: "390",
+  width: "100%",
+  playerVars: {
+    // https://developers.google.com/youtube/player_parameters
+    autoplay: 0,
+  },
+};
+
+const movieTrailer = (id) => {
+  console.log(id);
+  axios
+    .get(`/movie/${movie.id}/videos?api_key=${API_KEY}&language=en=US`)
+    .then((response) => {
+      if (response.data.results.length !== 0) {
+        setUrlId(response.data.results[0]);
+      }
+    }, []);
+};
+
+
   return (
     <div>
       
@@ -32,8 +56,16 @@ function Banner() {
             <div className="content">
                 <h1 className='title'>{movie  ? movie.title : ""}</h1> 
                 <div className="banner_button">
-                    <button className='button'>Play</button>
+                    <button className='button'  
+                       onClick={() => {
+                        movieTrailer(movie.id);
+                        }}
+                    >Play</button>
                     <button className='button'>My list</button>
+
+                    { urlId.key &&  <Youtube opts={opts} videoId={urlId.key}  /> }
+
+                    
                 </div>
                 <h1 className='description'>{truncate(movie?.overview,150)}</h1>
             </div>
