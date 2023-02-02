@@ -9,10 +9,10 @@ function App() {
   return (
     <div className="App">
       <Banner/>
-      <ItemList url={tv_series} title ="TV series"  />
       <ItemList url={action} title = "Action" isSmall />
       <ItemList url={comedy} title="Comedy" isSmall />
       <ItemList url={horror} title ="Horror" isSmall />
+      <ItemList url={tv_series} title ="TV series"  />
     </div>
   );
 }
