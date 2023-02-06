@@ -52,7 +52,7 @@ const movieTrailer = (id) => {
     <div className='banner-main'>
       
 
-        <div style={{backgroun-position: center; background-size: 100%; backgroundImage:`url(${movie ? imageUrl+movie.backdrop_path : " "})` }} className='banner'>
+        <div style={{background-position: center; background-size: 100%; backgroundImage:`url(${movie ? imageUrl+movie.backdrop_path : " "})` }} className='banner'>
             <div className="content">
                 <h1 className='title'>{movie  ? movie.title : ""}</h1> 
                 <div className="banner_button">
